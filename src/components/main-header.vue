@@ -3,6 +3,8 @@ import logo from '/logo.png'
 import cart from '/cart.svg'
 import heart from '/heart.svg'
 import profile from '/profile.svg'
+
+const emit = defineEmits(['openDrawer'])
 </script>
 
 <template>
@@ -16,8 +18,8 @@ import profile from '/profile.svg'
     </div>
 
     <ul class="flex items-center gap-10">
-      <li class="flex items-center gap-3 text-gray-500">
-        <img :src="cart" alt="cart" />
+      <li class="flex items-center gap-3 text-gray-500 cursor-pointer hover:text-black transition-all duration-300" @click="() => emit('openDrawer')">
+        <img :src="cart" alt="cart"  />
         <span>1205 руб.</span>
       </li>
       <li class="flex items-center gap-3 text-gray-500">
@@ -25,7 +27,7 @@ import profile from '/profile.svg'
         <span>Закладки</span>
       </li>
       <li class="flex items-center gap-3 text-gray-500">
-        <img :src="profile" alt="profile" />
+      <img :src="profile" alt="profile" />
         <span>Профиль</span>
       </li>
     </ul>
