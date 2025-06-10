@@ -21,6 +21,7 @@ defineProps({
     class="relative border border-slate-100 rounded-3xl p-8 cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 bg-white"
   >
     <img
+    v-if="onClickFavorite"
       :src="isFavorite ? like2 : like1"
       alt="like 1"
       class="absolute top-8 left-8 bg-white rounded-full p-1"
@@ -33,7 +34,7 @@ defineProps({
         <span class="text-slate-500">Цена:</span>
         <b>{{ price }} руб.</b>
       </div>
-      <img :src="isAdded ? checked : plus" alt="plus" @click="onClickAdd" />
+      <img v-if="onClickAdd" :src="isAdded ? checked : plus" alt="plus" @click="onClickAdd" />
     </div>
   </div>
 </template>
